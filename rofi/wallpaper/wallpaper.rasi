@@ -1,0 +1,26 @@
+@import "~/.config/rofi/type-2/style-2.rasi"
+
+listview {
+    columns: 4;
+    lines: 3;
+    spacing: 12px;
+    fixed-height: false;
+    fixed-columns: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 8px;
+    spacing: 6px;
+    border-radius: 14px;
+}
+
+element-icon {
+    size: 150px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}

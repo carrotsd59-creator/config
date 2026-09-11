@@ -1,0 +1,8 @@
+require"modules.animations"
+require"modules.binds"
+require"modules.autostart"
+require"modules.decoration"
+require"modules.env"
+require"modules.general"
+require"modules.monitor"
+require"modules.rule"

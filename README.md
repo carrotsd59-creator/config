@@ -6,6 +6,7 @@ The setup is heavily inspired by macOS, Material You, and Fluent Design, with a 
 
 Still a work in progress. Things will probably break. That's part of the experience.
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/89adf756-4184-412f-828d-5eaeae0f312e" />
 
 Features
 
@@ -44,19 +45,6 @@ The visual style is mainly inspired by:
 The goal is a desktop that feels minimal, soft, responsive, and slightly playful, rather than just throwing blur everywhere because Linux apparently requires 47 layers of transparency to function.
 
 The setup uses rounded surfaces, dynamic colors, smooth transitions, and consistent typography across applications.
-
-
-Structure
-
-config/
-├── fish/
-├── hypr/
-├── kitty/
-├── matugen/
-├── rofi/
-├── swaync/
-└── waybar/
-
 
 Hyprland
 

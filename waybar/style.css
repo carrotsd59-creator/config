@@ -2,7 +2,7 @@
 
 * {
     all: unset;
-    font-family: "Iosevka Nerd Font", monospace;
+    font-family: "Iosevka Nerd Font Propo", monospace;
 }
 
 window#waybar {
@@ -26,16 +26,19 @@ window#waybar > box {
 #workspaces button {
     background-color: @surface_container_highest;
     color: transparent;
-    padding: 0px 5px;
+    padding: 0 5px;
     border-radius: 99px;
     margin: 0 2px;
     min-width: 4px;
+
+    transition:
+        min-width 300ms cubic-bezier(.55, -0.68, .48, 1.68),
+        background-color 180ms ease;
 }
 
 #workspaces button.active {
     background-color: @primary;
     min-width: 1.2rem;
-    transition: none;
 }
 
 #clock,

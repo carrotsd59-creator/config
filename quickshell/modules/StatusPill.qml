@@ -39,11 +39,68 @@ Hover {
     }
 
     Rectangle {
+        id: bgCard
         anchors.fill: parent
         radius: 24
         color: Colors.bg0
-        border.color: root.isExpanded ? Colors.bg2 : Colors.grey1
-        border.width: root.isExpanded ? 1 : 2
+
+        Canvas {
+            id: customBorder
+            anchors.fill: parent
+            visible: !root.isExpanded
+
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.reset();
+
+                var cx = width / 2;
+                var cy = height / 2;
+                var r = (width / 2) - 2; // Border circle radius
+                var strokeCol = Colors.aqua;
+
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = strokeCol;
+                ctx.fillStyle = strokeCol;
+
+                // 1. Draw solid arc on the TOP part (from ~35 degrees to 145 degrees)
+                // In Canvas: 0 rad points to 3 o'clock, Math.PI/2 points to 6 o'clock (bottom)
+                var gapStart = Math.PI * 0.22; // Gap starts at the bottom
+                var gapEnd = Math.PI * 0.78;   // Gap ends at the bottom
+
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, gapEnd, gapStart + 2 * Math.PI, false);
+                ctx.stroke();
+
+                // 2. Draw 5 evenly spaced dots inside the gap at the BOTTOM
+                var dotCount = 5;
+                var step = (gapEnd - gapStart) / (dotCount - 1);
+
+                for (var i = 0; i < dotCount; i++) {
+                    var angle = gapStart + (i * step);
+                    var x = cx + r * Math.cos(angle);
+                    var y = cy + r * Math.sin(angle);
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, 1.2, 0, 2 * Math.PI); // Each dot radius = 1.2px
+                    ctx.fill();
+                }
+            }
+
+            Connections {
+                target: root
+                function onIsExpandedChanged() { customBorder.requestPaint(); }
+            }
+        }
+
+        // Rounded border shown when expanded
+        Rectangle {
+            anchors.fill: parent
+            radius: parent.radius
+            color: "transparent"
+            border.color: Colors.bg2
+            border.width: 2
+            visible: root.isExpanded
+        }
     }
 
     Text {
@@ -52,8 +109,8 @@ Hover {
         text: "wifi"
         color: Colors.fg
         font {
-            family: "Material Symbols Outlined"
-            pixelSize: 18
+            family: "Material Symbols Sharp"
+            pixelSize: 16
         }
     }
 

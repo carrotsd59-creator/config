@@ -1,11 +1,18 @@
+// Qt-group
 import QtQuick
-import Quickshell
 import QtQuick.Effects
+
+// Quickshell-group
+import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Wayland
+
+// Import things-group
 import "./modules" as Modules
 import "./ScreenCorners"
 
 ShellRoot {
+
     Variants {
         model: Quickshell.screens
 
@@ -13,6 +20,7 @@ ShellRoot {
             id: reserve
 
             required property var modelData
+
             screen: modelData
 
             anchors {
@@ -23,8 +31,10 @@ ShellRoot {
 
             implicitHeight: 45
             color: "transparent"
+
             exclusionMode: ExclusionMode.Normal
             exclusiveZone: 45
+
             WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
         }
     }
@@ -36,6 +46,7 @@ ShellRoot {
             id: overlay
 
             required property var modelData
+
             screen: modelData
 
             anchors {
@@ -46,14 +57,34 @@ ShellRoot {
 
             implicitHeight: 1000
             color: "transparent"
+
             exclusionMode: ExclusionMode.Ignore
+
             WlrLayershell.layer: WlrLayer.Overlay
             WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
+            HyprlandWindow.opacity:
+                Hyprland.focusedWorkspace?.hasFullscreen ? 0 : 1
+
+            Behavior on HyprlandWindow.opacity {
+                NumberAnimation {
+                    duration: 180
+                    easing.type: Easing.OutCubic
+                }
+            }
+
             mask: Region {
-                Region { item: mediaPill }
-                Region { item: island }
-                Region { item: statusPill }
+                Region {
+                    item: mediaPill
+                }
+
+                Region {
+                    item: island
+                }
+
+                Region {
+                    item: statusPill
+                }
             }
 
             ScreenCorners {}

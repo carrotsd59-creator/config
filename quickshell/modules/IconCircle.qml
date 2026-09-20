@@ -17,7 +17,7 @@ Rectangle {
         text: parent.parent.icon
         color: parent.parent.iconColor
         font {
-            family: "Material Symbols Outlined"
+            family: "Material Symbols Rounded"
             pixelSize: parent.parent.iconSize
         }
     }

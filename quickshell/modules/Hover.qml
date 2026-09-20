@@ -1,3 +1,4 @@
+// Hover.qml
 import QtQuick
 
 Item {
@@ -6,18 +7,26 @@ Item {
     // ==============================
     // CONFIGURATION PROPERTIES
     // ==============================
-    property real normalWidth: 170
-    property real normalHeight: 45
+    property real normalWidth: 80
+    property real normalHeight: 35
 
-    property real expandedWidth: 320
-    property real expandedHeight: 140
+    property real hoverWidth: 96
+    property real hoverHeight: 42
 
+    property real expandedWidth: 220
+    property real expandedHeight: 100
+
+    property bool isExpanded: false
     property int duration: 250
+    property alias mouseArea: mouseArea
     property bool isHovered: mouseArea.containsMouse
 
-    // Kích thước hiện tại sẽ tự động animate khi isHovered thay đổi
-    width: isHovered ? expandedWidth : normalWidth
-    height: isHovered ? expandedHeight : normalHeight
+    // Logic kích thước:
+    // 1. Nếu đang mở rộng (Click/Active) -> Lấy expandedWidth
+    // 2. Nếu đang Hover -> Lấy hoverWidth (nảy nhẹ)
+    // 3. Bình thường -> Lấy normalWidth
+    width: isExpanded ? expandedWidth : (isHovered ? hoverWidth : normalWidth)
+    height: isExpanded ? expandedHeight : (isHovered ? hoverHeight : normalHeight)
 
     Behavior on width {
         NumberAnimation {

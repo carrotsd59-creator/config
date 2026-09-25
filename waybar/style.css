@@ -1,63 +1,196 @@
 @import "colors.css";
 
 * {
-    all: unset;
-    font-family: "Iosevka Nerd Font Propo", monospace;
+    font-size: 10px;
+    color: @on_surface;
+    font-weight: 900;
+    font-family: "Material Symbols Rounded", "JetBrainsMono Nerd Font";
+    margin: 1;
+    padding: 0.2;
 }
 
-window#waybar {
-    background: transparent;
+#waybar {
+    background: alpha(@background, 0.85);
     color: @on_background;
+    padding: 0 4px;
 }
 
-window#waybar > box {
-    background-color: @background;
-    border-radius: 0 0 10px 10px;
-}
+
+/* WORKSPACES */
 
 #workspaces {
-    min-width: 100px;
-    font-size: 0.4rem;
-    padding: 2px 4px;
-    margin: 11px 0;
-    border-radius: 99px;
+    margin: 0;
+    padding: 0;
 }
 
 #workspaces button {
-    background-color: @surface_container_highest;
-    color: transparent;
-    padding: 0 5px;
-    border-radius: 99px;
+    min-width: 9px;
+    padding: 0 4px;
     margin: 0 2px;
-    min-width: 4px;
+    background: transparent;
+    color: @outline_variant;
+    border: none;
+    border-radius: 4px;
 
-    transition:
-        min-width 300ms cubic-bezier(.55, -0.68, .48, 1.68),
-        background-color 180ms ease;
+    font-family: "Material Symbols Rounded";
+    font-size: 10px;
 }
 
 #workspaces button.active {
-    background-color: @primary;
-    min-width: 1.2rem;
+    color: @primary;
+
+    background: transparent;
 }
 
-#clock,
-#clock#right {
-    margin: 0 15px;
-    font-weight: 700;
-    font-size: 1rem;
+#workspaces button.urgent {
+    color: @error;
+    border-bottom: 2px solid @error;
 }
 
-.modules-left {
-    margin-left: 12px;
+#workspaces button:hover {
+    background: @surface_container_high;
+    color: @on_surface;
 }
+
+
+/* WINDOW */
+
+#window {
+    color: @on_surface_variant;
+    padding: 2px 10px;
+}
+
+
+/* CLOCK */
+
+#clock {
+    color: @primary;
+    font-weight: 900;
+    padding: 2px 10px;
+}
+
+
+/* MEDIA */
+
+#mpris {
+    color: @on_surface_variant;
+    padding: 0 8px;
+}
+
+#mpris.playing {
+    color: @secondary;
+}
+
+#mpris.paused {
+    color: @outline;
+}
+
+#mpris.stopped {
+    color: @outline_variant;
+}
+
+#mpris:hover {
+    color: @primary;
+}
+
+
+/* CAVA */
 
 #cava {
-    margin: 0 12px;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
+    color: @primary;
+    padding: 0 8px;
 }
 
-#custom-battery {
-    margin: 0 16px;
+
+/* CPU */
+
+#cpu {
+    color: @secondary;
+    padding: 2px 10px;
+}
+
+#cpu.warning {
+    color: @tertiary;
+}
+
+#cpu.critical {
+    color: @error;
+}
+
+
+/* MEMORY */
+
+#memory {
+    color: @tertiary;
+    padding: 2px 10px;
+}
+
+#memory.warning {
+    color: @secondary;
+}
+
+#memory.critical {
+    color: @error;
+}
+
+
+/* WEATHER */
+
+#custom-weather {
+    color: @primary;
+    padding: 2px 10px;
+}
+
+#custom-weather:hover {
+    color: @primary_fixed;
+}
+
+
+/* WALLPAPER */
+
+#custom-wallpaper {
+    color: @secondary;
+    font-size: 16px;
+    padding: 0 8px;
+}
+
+#custom-wallpaper:hover {
+    color: @primary;
+}
+
+
+/* POWER */
+
+#custom-power {
+    color: @error;
+    font-size: 16px;
+    padding: 0 8px;
+}
+
+#custom-power:hover {
+    color: @error_container;
+}
+
+
+/* TOOLTIP */
+
+tooltip {
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+
+/* HOVER */
+
+#workspaces button:hover,
+#custom-weather:hover,
+#custom-wallpaper:hover,
+#custom-power:hover,
+#mpris:hover {
+    background: alpha(@surface_container_high, 0.75);
 }

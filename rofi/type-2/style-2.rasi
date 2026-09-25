@@ -22,18 +22,19 @@ configuration {
 /*****----- Main Window -----*****/
 window {
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    north;
+    anchor:                      north;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       500px;
+    height:                      500px;
     x-offset:                    0px;
-    y-offset:                    0px;
+    y-offset:                    20px;
 
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               15px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";
@@ -90,7 +91,7 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
+    columns:                     1;
     lines:                       8;
     cycle:                       true;
     dynamic:                     true;

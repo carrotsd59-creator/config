@@ -2,9 +2,6 @@
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
-
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
@@ -52,13 +49,15 @@ hl.window_rule({
 hl.layer_rule({
     name = "rofi-popup",
     match = { namespace = "rofi" },
-    animation = "slide bottom",
-    dim_around = true
+    animation = "slide top",
+    dim_around = false,
 })
 
 -- SwayNC
 hl.layer_rule({
-    name = "notificatipn-animations",
+    name = "notification-animations",
     match = { namespace = "swaync-control-center" },
     animation = "slide top"
 })
+
+

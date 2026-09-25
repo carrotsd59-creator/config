@@ -10,6 +10,7 @@ import Quickshell.Wayland
 // Import things-group
 import "./modules" as Modules
 import "./ScreenCorners"
+import "./modules"
 
 ShellRoot {
 
@@ -89,11 +90,13 @@ ShellRoot {
 
             ScreenCorners {}
 
+            Settings {}
+
             Modules.Island {
                 id: island
             }
 
-            Modules.MediaPill {
+           Modules.MediaPill {
                 id: mediaPill
 
                 anchors {
@@ -112,6 +115,7 @@ ShellRoot {
                     leftMargin: 9
                 }
             }
+
         }
     }
 }

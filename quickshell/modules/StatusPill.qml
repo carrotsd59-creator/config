@@ -97,7 +97,7 @@ Hover {
             anchors.fill: parent
             radius: parent.radius
             color: "transparent"
-            border.color: Colors.bg2
+            border.color: Colors.bg1
             border.width: 2
             visible: root.isExpanded
         }
@@ -133,7 +133,7 @@ Hover {
                 icon: "wifi"
                 title: "Wi-Fi"
                 subtitle: "Atlantis 5G"
-                cardColor: Colors.bg2
+                cardColor: Colors.bg1
                 iconBackground: Colors.green
                 iconColor: Colors.bg0
             }
@@ -171,7 +171,7 @@ Hover {
                 icon: "bluetooth"
                 title: "Bluetooth"
                 subtitle: "On"
-                cardColor: Colors.bg2
+                cardColor: Colors.bg1
                 iconBackground: Colors.green
                 iconColor: Colors.bg0
             }

@@ -190,7 +190,7 @@ Hover {
                 Layout.fillWidth: true
 
                 Rectangle {
-                    width: 28; height: 28; radius: 14; color: Colors.bg2
+                    width: 28; height: 28; radius: 14; color: Colors.bg1
                     Text { anchors.centerIn: parent; text: "←"; color: Colors.fg }
                     MouseArea {
                         anchors.fill: parent
@@ -211,7 +211,7 @@ Hover {
                 }
 
                 Rectangle {
-                    width: 28; height: 28; radius: 14; color: Colors.bg2
+                    width: 28; height: 28; radius: 14; color: Colors.bg1
                     Text { anchors.centerIn: parent; text: "→"; color: Colors.fg }
                     MouseArea {
                         anchors.fill: parent

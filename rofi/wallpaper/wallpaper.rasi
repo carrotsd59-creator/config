@@ -1,4 +1,4 @@
-@import "~/.config/rofi/type-2/style-2.rasi"
+@import "~/.config/rofi/type-2/style-7.rasi"
 
 listview {
     columns: 4;

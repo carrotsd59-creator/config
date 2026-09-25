@@ -12,7 +12,7 @@ configuration {
 	modi:                       "drun";
     show-icons:                 true;
     display-drun:               " Applications";
-	drun-display-format:        "{name}";
+    drun-display-format:        "{name}"; 
 }
 
 /*****----- Global Properties -----*****/
@@ -22,10 +22,11 @@ configuration {
 /*****----- Main Window -----*****/
 window {
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    south;
+    anchor:                      south;
     fullscreen:                  false;
     width:                       1000px;
+    height:                      700;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -33,7 +34,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               12px 12px 0px 0px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";

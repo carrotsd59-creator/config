@@ -1,39 +1,35 @@
 /**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
  * Rofi Theme File
- * Rofi Version: 1.7.3
  **/
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun";
+    modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
-	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+@import                           "shared/colors.rasi"
+@import                           "shared/fonts.rasi"
 
 /*****----- Main Window -----*****/
 window {
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    north;
+    anchor:                      north;
     fullscreen:                  false;
-    width:                       400px;
+    width:                       450px;
+    height:                      450px;
     x-offset:                    0px;
-    y-offset:                    0px;
+    y-offset:                    20px;
 
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               15px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";
@@ -46,7 +42,7 @@ mainbox {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
@@ -56,10 +52,10 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px;
+    margin:                      12px;
     padding:                     15px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               12px;
     border-color:                @selected;
     background-color:            @selected;
     text-color:                  @background;
@@ -71,6 +67,7 @@ prompt {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -78,6 +75,7 @@ textbox-prompt-colon {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 entry {
     enabled:                     true;
     background-color:            inherit;
@@ -100,8 +98,9 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     5px;
-    margin:                      0px;
+    spacing:                     4px;
+    /* Căn mép trái/phải 12px cho khớp lề với Inputbar */
+    margin:                      0px 12px 12px 12px;
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
@@ -110,8 +109,9 @@ listview {
     text-color:                  @foreground;
     cursor:                      "default";
 }
+
 scrollbar {
-    handle-width:                5px ;
+    handle-width:                5px;
     handle-color:                @selected;
     border-radius:               0px;
     background-color:            @background-alt;
@@ -120,30 +120,36 @@ scrollbar {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     12px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     10px 14px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               10px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
+
 element normal.normal {
-    background-color:            @background;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
+
+/* Phần highlight khi chọn item */
 element selected.normal {
     background-color:            @background-alt;
     text-color:                  @foreground;
+    border-radius:               10px;
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        32px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -162,6 +168,7 @@ error-message {
     background-color:            @background;
     text-color:                  @foreground;
 }
+
 textbox {
     background-color:            @background;
     text-color:                  @foreground;
